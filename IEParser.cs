@@ -202,9 +202,15 @@ namespace ManagedWifi
             {
                 var ie = new InformationElement();
                 ie.ItsNumber = ies[index];
+                if (index + 1 >= ies.Length) break;
                 ie.ItsLength = ies[index + 1];
                 ie.ItsData = new byte[ie.ItsLength];
-                Array.Copy(ies, index + 2, ie.ItsData, 0, ie.ItsLength);
+                int length;
+                if (ies.Length - (index + 2) < ie.ItsLength)
+                    length = ies.Length - (index + 2);
+                else
+                    length = ie.ItsLength;
+                Array.Copy(ies, index + 2, ie.ItsData, 0, length);
 
                 informationElements.Add(ie);
                 index += ie.ItsLength + 2;

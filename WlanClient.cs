@@ -24,7 +24,7 @@ using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Text;
 using MetaGeek.Diagnostics;
-using MetaGeek.Diagnostics.Event;
+//using MetaGeek.Diagnostics.Event;
 
 namespace ManagedWifi
 {

@@ -109,6 +109,9 @@ namespace ManagedWifi
             var basicMCSSet = new byte[2];
             Array.Copy(ie.ItsData, 3, basicMCSSet, 0, 2);
 
+            settings.Operations.ChannelCenterFrequency0 = operations[1];
+            settings.Operations.ChannelCenterFrequency1 = operations[2];
+
             settings.Operations.ChannelWidth = 
                 (TypeACSettings.VHTOperations.VHTChannelWidth) Enum.Parse(
                     typeof(TypeACSettings.VHTOperations.VHTChannelWidth), 
@@ -314,6 +317,8 @@ namespace ManagedWifi
                 }
 
                 public VHTChannelWidth ChannelWidth;
+                public byte ChannelCenterFrequency0;
+                public byte ChannelCenterFrequency1;
             }
 
             public VHTCapabilities Capabilities { get; set; }
